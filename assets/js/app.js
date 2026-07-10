@@ -1,1 +1,0 @@
-function toggle(c){const d=c.querySelector(".content");d.style.display=d.style.display==="block"?"none":"block"}function copyText(b){navigator.clipboard.writeText(b.previousElementSibling.value);alert("Copiado")}
