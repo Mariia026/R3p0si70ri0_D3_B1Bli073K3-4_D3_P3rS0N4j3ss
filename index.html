@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mi Biblioteca</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+<div id="estadoConexion">🟢 Online</div>
+
+<div id="auth">
+<h2>Login</h2>
+<input id="email" placeholder="Email"><br>
+<input id="password" type="password" placeholder="Password"><br>
+<button onclick="login()">Entrar</button>
+<button onclick="registrar()">Registrarse</button>
+</div>
+
+<div id="app" style="display:none;">
+<button onclick="logout()">Salir</button>
+
+<input id="buscador" placeholder="Buscar..." onkeyup="filtrar()">
+
+<div>
+<button onclick="filtrarEstado('todos')">Todos</button>
+<button onclick="filtrarEstado('pendiente')">Pendiente</button>
+<button onclick="filtrarEstado('comprado')">Comprado</button>
+<button onclick="filtrarEstado('leido')">Leído</button>
+<button onclick="filtrarFavoritos()">⭐</button>
+</div>
+
+<button onclick="abrirForm()">Agregar</button>
+<button onclick="exportarBackup()">💾</button>
+
+<div id="biblioteca"></div>
+</div>
+
+<div id="modal" class="modal">
+<div class="modal-content">
+<h3 id="tituloForm">Agregar libro</h3>
+<input id="nombre" placeholder="Nombre"><br>
+<input id="imagen" placeholder="URL"><br>
+<textarea id="descripcion"></textarea><br>
+<select id="estado">
+<option value="pendiente">Pendiente</option>
+<option value="comprado">Comprado</option>
+<option value="leido">Leído</option>
+</select><br>
+<button onclick="guardarLibro()">Guardar</button>
+<button onclick="cerrarForm()">Cancelar</button>
+</div>
+</div>
+
+
+
+
+<button onclick="exportarDatos()">📤 Exportar Backup</button>
+<input type="file" id="importarArchivo" onchange="importarDatos(event)">
+
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="assets/js/app.js"></script>
+
+</body>
+</html>
